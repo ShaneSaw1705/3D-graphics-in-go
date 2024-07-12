@@ -13,24 +13,20 @@ func main() {
 		Up:       rl.NewVector3(0, 1, 0),
 		Fovy:     45.0,
 	}
+	rl.DisableCursor()
 
 	rl.SetTargetFPS(60)
 
 	for !rl.WindowShouldClose() {
 
-		rl.UpdateCamera(&camera, rl.CameraFirstPerson)
+		rl.UpdateCamera(&camera, rl.CameraFree)
 
 		rl.BeginDrawing()
 		rl.ClearBackground(rl.RayWhite)
 
 		rl.BeginMode3D(camera)
 
-		rl.DrawGrid(10, 1.0)
-		rl.DrawCube(rl.NewVector3(0, 1, 0), 2.0, 2.0, 2.0, rl.Red)
-		rl.DrawCubeWires(rl.NewVector3(0, 1, 0), 2.0, 2.0, 2.0, rl.Black)
-
-		rl.DrawCube(rl.NewVector3(2, 1, 0), 2.0, 2.0, 2.0, rl.Red)
-		rl.DrawCubeWires(rl.NewVector3(2, 1, 0), 2.0, 2.0, 2.0, rl.Black)
+		rl.DrawPlane(rl.NewVector3(0, 0, 0), rl.NewVector2(100, 100), rl.DarkGreen)
 
 		rl.EndMode3D()
 
